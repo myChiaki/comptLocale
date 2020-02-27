@@ -18,8 +18,10 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  ComptDemo,
-  locale: locale.use,
-  i18n: locale.i18n,
   install
+}
+
+export {
+  ComptDemo,
+  locale
 }

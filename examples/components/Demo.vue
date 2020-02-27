@@ -9,12 +9,13 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import EN from '@/locale/lang/en'
-import CN from '@/locale/lang/zh_cn'
 import i18nData from './i18n'
+import { ComptDemo } from '@'
 export default {
   name: 'Demo',
+  components: {
+    ComptDemo
+  },
   created () {
     Object.keys(i18nData).forEach((key) => {
       this.$i18n.mergeLocaleMessage(key, i18nData[key]) // 6.x新增属性

@@ -5,4 +5,3 @@ export default {
         }
     } 
 }
-export default lang

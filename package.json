@@ -1,17 +1,20 @@
 {
-  "name": "component-i18n",
-  "version": "0.1.3",
+  "name": "component-locale",
+  "version": "1.0.5",
   "private": false,
-  "main": "./dist/component-i18n.js",
+  "main": "dist/component-locale.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "prepublishOnly": "npm run bundle",
-    "bundle": "vue-cli-service build --target lib --name component-i18n ./src/index.js --report"
+    "prepublishOnly": "npm run bundle && npm run dist",
+    "bundle": "vue-cli-service build --target lib --name component-locale ./src/index.js --report",
+    "dist": "npm run dist:locale",
+    "dist:locale": "webpack --config build/webpack.dist.locale.config.js"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "vue": "^2.6.10",
     "vue-i18n": "^8.15.3",
     "vue-router": "^3.1.3"
@@ -25,7 +28,8 @@
     "eslint-plugin-vue": "^5.0.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "webpack-cli": "^3.3.11"
   },
   "eslintConfig": {
     "root": true,
@@ -49,5 +53,9 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
+  ],
+  "files": [
+    "dist",
+    "src"
   ]
 }

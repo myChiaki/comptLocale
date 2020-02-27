@@ -9,9 +9,9 @@ let merged = false
 let i18nHandler = function () {
     const vueI18n = Object.getPrototypeOf(this || Vue).$t
 		/* 判断是否有使用vue-i18n，vue-i18n@6.x之后被移除了，可改用VueI18n#GetLocaleMessage / VueI18n#setLocaleMessage，
-		或使用new VueI18n({ locale: 'en', messages})设置语言报，这里用后者 */
+		或使用new VueI18n({ locale: 'en', messages})设置语言包，这里用后者 */
     if (typeof vueI18n === 'function') {
-			if (!!Vue.locale) {
+			if (Vue.locale) {
         if (!merged) {
             merged = true
             Vue.locale(
@@ -26,7 +26,6 @@ let i18nHandler = function () {
 
 // 国际化
 export const t = function (path, options) {
-	debugger
     let value = i18nHandler.apply(this, arguments)
     if (value !== null && value !== undefined) return value
 

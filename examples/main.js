@@ -30,9 +30,6 @@ const i18n = new VueI18n({
 
 Vue.use(ComptI18n)
 
-window.locale = ComptI18n.locale
-
-
 /** 兼容vue-i18n@6.x end */
 
 
