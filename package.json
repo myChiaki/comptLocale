@@ -5,12 +5,11 @@
   "main": "dist/component-locale.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "prepublishOnly": "npm run bundle && npm run dist",
-    "bundle": "vue-cli-service build --target lib --name component-locale ./src/index.js --report",
-    "dist": "npm run dist:locale",
-    "dist:locale": "webpack --config build/webpack.dist.locale.config.js"
+    "prepublishOnly": "npm run build",
+    "build": "npm run build:js && npm run build:locale",
+    "build:js": "vue-cli-service build --target lib --name component-locale ./src/index.js --report",
+    "build:locale": "webpack --config build/webpack.dist.locale.config.js"
   },
   "dependencies": {
     "core-js": "^2.6.5",
